@@ -1,17 +1,22 @@
 # GroupSPA-NetworkFlowSolver
+This repository contains the script for my final year project, completed as part of my BSc (Hons) Computer Science degree at Durham University.  Additionally, a link to my dissertation, ‘Automatic Allocation of Group Projects’, is provided for those interested in a thorough understanding of the theoretical aspects and methodologies utilized.
 
-This code provides a solution to the Group Student-Project Allocation (Group-SPA) problem. It involves allocating students to project topics based on their ranked preferences while adhering to certain constraints like group size and topic use limits.
+The core objective of this project was to develop an efficient, automated system for allocating students to project topics. This system is designed to consider students' ranked preferences rigorously while strictly adhering to a set of constraints, notably those related to group size and the maximum usage limits of each topic.
 
 ## Overview
 
 The solution is based on creating a flow network to model the allocation problem. It then computes the maximum flow with minimum cost to determine the best allocation of students to topics.
+
+## Scripts
+- `allocate.py`: The main allocation script.
+- `instance_generator.py`: Instance Generator for creating varied test cases.
+
 
 ## Imports
 
 ```python
 import networkx as nx
 import pandas as pd
-import random
 from collections import defaultdict
 ```
 
@@ -19,18 +24,15 @@ from collections import defaultdict
 - min_group_size: Minimum size of a student group.
 - max_group_size: Maximum size of a student group.
 - topic_use_limit: The maximum number of groups a topic can be assigned to.
-- students_df: DataFrame containing students and their topic preferences.
 
 ```python
 min_group_size = 6
 max_group_size = 7
 topic_use_limit = 2
-students_df = pd.read_csv('Preferences2.csv')
 ```
 
 ## Input
-The program expects a CSV file Preferences2.csv with student IDs followed by their ranked topic preferences.
-
+The program expects a CSV file with student IDs followed by their ranked topic preferences. The repository features an Instance Generator and a collection of CSV files are included to demonstrate various application scenarios of the solution.
 Example format:
 ```python
 StudentID,Preference1,Preference2,Preference3,Preference4
@@ -40,8 +42,8 @@ StudentID,Preference1,Preference2,Preference3,Preference4
 ```
 
 ## Output
-- allocation.csv: A file with the allocated groups. Columns include the topic, group number, and student.
-- log_file.txt: Contains logs about the allocation results and score function.
+- `allocation.csv`: A file with the allocated groups. Columns include the topic, group number, and student.
+- `log_file.txt`: Contains logs about the allocation results and score function.
   
 ## Functions
 `Main Flow Computation`
